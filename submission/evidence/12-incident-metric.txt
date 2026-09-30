@@ -1,0 +1,13 @@
+{
+  "challenge_id": "day13-k4-l3b-monitoring-llmops-v1",
+  "incident": "rag_slow",
+  "symptom": "latency P95/P99 elevated due to retrieval delay",
+  "response_count": 21,
+  "slow_ge_2000ms": 5,
+  "latency_p50": 390.0,
+  "latency_p95": 2665.0,
+  "latency_p99": 2665.0,
+  "example_correlation_id": "req-1cb1f08b",
+  "example_latency_ms": 2665,
+  "example_ts": "2026-09-30T11:45:27.908081Z"
+}

@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 from . import metrics
 from .mock_llm import FakeLLM
-from .mock_rag import retrieve
+from .mock_rag import retrieve as _retrieve
 from .pii import hash_user_id, summarize_text
 from .prompt_management import resolve_prompt
 from .tracing import get_langfuse_client, observe, propagate_attributes, tracing_enabled
@@ -21,6 +21,19 @@ class AgentResult:
     tokens_out: int
     cost_usd: float
     quality_score: float
+
+
+@observe(name="retrieval", as_type="retriever", capture_input=False, capture_output=False)
+def retrieve_with_trace(message: str) -> list[str]:
+    docs = _retrieve(message)
+    client = get_langfuse_client()
+    client.update_current_span(
+        metadata={
+            "doc_count": len(docs),
+            "query_preview": summarize_text(message),
+        }
+    )
+    return docs
 
 
 class LabAgent:
@@ -51,7 +64,7 @@ class LabAgent:
             },
         ):
             started = time.perf_counter()
-            docs = retrieve(message)
+            docs = retrieve_with_trace(message)
             prompt = resolve_prompt(
                 langfuse_client,
                 feature=feature,
@@ -71,10 +84,9 @@ class LabAgent:
                 },
                 version=prompt.version,
             )
-            # TODO (CP2): instrument retrieve() and FakeLLM.generate() as child
-            # observations. The nested generation must receive prompt, usage and cost.
             with propagate_attributes(prompt=prompt.managed_prompt):
-                response = self.llm.generate(prompt.text)
+                response = self._generate_with_trace(prompt.text)
+
             quality_score = self._heuristic_quality(message, response.text, docs)
             latency_ms = int((time.perf_counter() - started) * 1000)
             cost_usd = self._estimate_cost(response.usage.input_tokens, response.usage.output_tokens)
@@ -97,6 +109,31 @@ class LabAgent:
             cost_usd=cost_usd,
             quality_score=quality_score,
         )
+
+    @observe(name="generation", as_type="generation", capture_input=False, capture_output=False)
+    def _generate_with_trace(self, prompt_text: str):
+        response = self.llm.generate(prompt_text)
+        cost_usd = self._estimate_cost(response.usage.input_tokens, response.usage.output_tokens)
+        client = get_langfuse_client()
+        client.update_current_generation(
+            model=response.model,
+            input=summarize_text(prompt_text, max_len=200),
+            output=summarize_text(response.text, max_len=200),
+            usage_details={
+                "input": response.usage.input_tokens,
+                "output": response.usage.output_tokens,
+            },
+            cost_details={
+                "input": round((response.usage.input_tokens / 1_000_000) * 3, 6),
+                "output": round((response.usage.output_tokens / 1_000_000) * 15, 6),
+                "total": cost_usd,
+            },
+            metadata={
+                "ttft_ms": response.ttft_ms,
+                "prompt_preview": summarize_text(prompt_text),
+            },
+        )
+        return response
 
     def _estimate_cost(self, tokens_in: int, tokens_out: int) -> float:
         input_cost = (tokens_in / 1_000_000) * 3

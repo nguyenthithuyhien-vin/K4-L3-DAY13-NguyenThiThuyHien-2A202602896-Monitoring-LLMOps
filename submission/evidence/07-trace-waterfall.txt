@@ -1,0 +1,99 @@
+{
+  "project": "day13-k4-l3b-2A202602896",
+  "trace_id": "3b47ed59d02fb9984b8149969c8eb102",
+  "span_tree": [
+    {
+      "name": "generation",
+      "type": "GENERATION",
+      "latency_s": 0.158,
+      "parentObservationId": "63f5731dde11d046",
+      "metadata": {
+        "correlation_id": "req-cc406652",
+        "model": "claude-sonnet-4-5",
+        "feature": "monitoring",
+        "prompt_preview": "Feature=monitoring Docs=No domain document matched. Use general fallback answer....",
+        "ttft_ms": 55,
+        "scope.attributes.public_key": "[REDACTED_LANGFUSE_KEY]",
+        "scope.version": "4.15.6",
+        "scope.name": "langfuse-sdk",
+        "resourceAttributes.service.name": "unknown_service:python",
+        "resourceAttributes.service.instance.id": "f395d025-b3e3-4ffe-8936-ef8ebc70c328",
+        "resourceAttributes.telemetry.sdk.version": "1.45.0",
+        "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+        "resourceAttributes.telemetry.sdk.language": "python"
+      },
+      "model": null,
+      "usageDetails": {
+        "input": 43,
+        "output": 168,
+        "total": 211
+      },
+      "totalCost": 0.002649,
+      "input": "Feature=monitoring Docs=No domain document matched. Use general fallback answer. Question=Describe how to prove a slow span is the root cause. Answer briefly using the docs.",
+      "output": "Starter answer. You should improve this output logic and add better quality checks. Use retrieved context and keep responses concise.",
+      "id": "8531634f9c27cb63",
+      "sessionId": "k4-l3b-challenge-s05"
+    },
+    {
+      "name": "lab-agent-run",
+      "type": "AGENT",
+      "latency_s": 2.664,
+      "parentObservationId": null,
+      "metadata": {
+        "correlation_id": "req-cc406652",
+        "model": "claude-sonnet-4-5",
+        "feature": "monitoring",
+        "prompt_fetch_error": "",
+        "prompt_source": "langfuse",
+        "prompt_version": 4,
+        "prompt_label": "production",
+        "prompt_name": "day13-chat",
+        "query_preview": "Describe how to prove a slow span is the root cause.",
+        "doc_count": 1,
+        "scope.attributes.public_key": "[REDACTED_LANGFUSE_KEY]",
+        "scope.version": "4.15.6",
+        "scope.name": "langfuse-sdk",
+        "resourceAttributes.service.name": "unknown_service:python",
+        "resourceAttributes.service.instance.id": "f395d025-b3e3-4ffe-8936-ef8ebc70c328",
+        "resourceAttributes.telemetry.sdk.version": "1.45.0",
+        "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+        "resourceAttributes.telemetry.sdk.language": "python"
+      },
+      "model": null,
+      "usageDetails": {},
+      "totalCost": null,
+      "input": null,
+      "output": null,
+      "id": "63f5731dde11d046",
+      "sessionId": "k4-l3b-challenge-s05"
+    },
+    {
+      "name": "retrieval",
+      "type": "RETRIEVER",
+      "latency_s": 2.505,
+      "parentObservationId": "63f5731dde11d046",
+      "metadata": {
+        "correlation_id": "req-cc406652",
+        "model": "claude-sonnet-4-5",
+        "feature": "monitoring",
+        "query_preview": "Describe how to prove a slow span is the root cause.",
+        "doc_count": 1,
+        "scope.attributes.public_key": "[REDACTED_LANGFUSE_KEY]",
+        "scope.version": "4.15.6",
+        "scope.name": "langfuse-sdk",
+        "resourceAttributes.service.name": "unknown_service:python",
+        "resourceAttributes.service.instance.id": "f395d025-b3e3-4ffe-8936-ef8ebc70c328",
+        "resourceAttributes.telemetry.sdk.version": "1.45.0",
+        "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+        "resourceAttributes.telemetry.sdk.language": "python"
+      },
+      "model": null,
+      "usageDetails": {},
+      "totalCost": null,
+      "input": null,
+      "output": null,
+      "id": "1f0554fd9b9f44e5",
+      "sessionId": "k4-l3b-challenge-s05"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "service": "api",
+  "latency_ms": 2665,
+  "ttft_ms": 55,
+  "tokens_in": 44,
+  "tokens_out": 168,
+  "cost_usd": 0.002652,
+  "quality_score": 0.9,
+  "tool_name": "retrieval",
+  "tool_success": true,
+  "payload": {
+    "answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."
+  },
+  "event": "response_sent",
+  "model": "claude-sonnet-4-5",
+  "user_id_hash": "c3a24a72d92a",
+  "session_id": "k4-l3b-challenge-s04",
+  "feature": "monitoring",
+  "env": "dev",
+  "correlation_id": "req-1cb1f08b",
+  "level": "info",
+  "ts": "2026-09-30T11:45:27.908081Z"
+}

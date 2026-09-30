@@ -1,0 +1,36 @@
+INPUT (synthetic):
+Contact student@vinuni.edu.vn or 0901234567 CCCD 012345678901 card 4111-1111-1111-1111
+
+LOG OUTPUT (scrubbed):
+[
+  {
+    "service": "api",
+    "payload": {
+      "message_preview": "What is the policy for PII and credit card [REDACTED_CREDIT_CARD]?"
+    },
+    "event": "request_received",
+    "correlation_id": "req-402c5b64",
+    "env": "dev",
+    "user_id_hash": "4d14d5d4f719",
+    "session_id": "s09",
+    "model": "claude-sonnet-4-5",
+    "feature": "qa",
+    "level": "info",
+    "ts": "2026-09-30T11:44:15.325821Z"
+  },
+  {
+    "service": "api",
+    "payload": {
+      "message_preview": "Contact [REDACTED_EMAIL] or [REDACTED_PHONE_VN] CCCD [REDACTED_CCCD] card [REDAC..."
+    },
+    "event": "request_received",
+    "model": "claude-sonnet-4-5",
+    "user_id_hash": "bb82030dbc2b",
+    "session_id": "s1",
+    "feature": "qa",
+    "env": "dev",
+    "correlation_id": "req-0bbe0ddd",
+    "level": "info",
+    "ts": "2026-09-30T11:44:29.119208Z"
+  }
+]

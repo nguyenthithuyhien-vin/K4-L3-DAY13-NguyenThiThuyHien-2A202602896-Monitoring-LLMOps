@@ -1,0 +1,10 @@
+Project: day13-k4-l3b-2A202602896
+Prompt name: day13-chat
+Before promote: production -> version 1 (baseline)
+After promote: production -> version 3 (candidate content)
+After rollback: production -> version 4 (baseline content restored)
+Correlation IDs / traces for each label:
+  baseline: req-base0001
+  candidate: req-cand0001
+  production@v2: req-prod0002
+  production@v1 rollback: req-prod0001

@@ -1,0 +1,100 @@
+{
+  "challenge_id": "day13-k4-l3b-monitoring-llmops-v1",
+  "correlation_id": "req-1cb1f08b",
+  "session_id": "k4-l3b-challenge-s04",
+  "log_latency_ms": 2665,
+  "log_ts": "2026-09-30T11:45:27.908081Z",
+  "trace_id": "2a0cbd535b73febc96abcec7dcbe4075",
+  "root_cause_span": "retrieval",
+  "join_method": "session_id from structured log matches Langfuse observation sessionId; correlation_id in log",
+  "observations": [
+    {
+      "name": "generation",
+      "type": "GENERATION",
+      "duration_ms": 159.0,
+      "latency_s": 0.159,
+      "sessionId": "k4-l3b-challenge-s04",
+      "metadata": {
+        "correlation_id": "req-1cb1f08b",
+        "model": "claude-sonnet-4-5",
+        "feature": "monitoring",
+        "prompt_preview": "Feature=monitoring Docs=No domain document matched. Use general fallback answer....",
+        "ttft_ms": 55,
+        "scope.attributes.public_key": "[REDACTED_LANGFUSE_KEY]",
+        "scope.version": "4.15.6",
+        "scope.name": "langfuse-sdk",
+        "resourceAttributes.service.name": "unknown_service:python",
+        "resourceAttributes.service.instance.id": "f395d025-b3e3-4ffe-8936-ef8ebc70c328",
+        "resourceAttributes.telemetry.sdk.version": "1.45.0",
+        "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+        "resourceAttributes.telemetry.sdk.language": "python"
+      },
+      "model": null,
+      "usageDetails": {
+        "input": 44,
+        "output": 168,
+        "total": 212
+      },
+      "id": "6c0801d4e1eaa4e6",
+      "parentObservationId": "26b3b41679d8bb27"
+    },
+    {
+      "name": "lab-agent-run",
+      "type": "AGENT",
+      "duration_ms": 2665.0,
+      "latency_s": 2.665,
+      "sessionId": "k4-l3b-challenge-s04",
+      "metadata": {
+        "correlation_id": "req-1cb1f08b",
+        "model": "claude-sonnet-4-5",
+        "feature": "monitoring",
+        "prompt_fetch_error": "",
+        "prompt_source": "langfuse",
+        "prompt_version": 1,
+        "prompt_label": "production",
+        "prompt_name": "day13-chat",
+        "query_preview": "Which signal should be checked after latency increases?",
+        "doc_count": 1,
+        "scope.attributes.public_key": "[REDACTED_LANGFUSE_KEY]",
+        "scope.version": "4.15.6",
+        "scope.name": "langfuse-sdk",
+        "resourceAttributes.service.name": "unknown_service:python",
+        "resourceAttributes.service.instance.id": "f395d025-b3e3-4ffe-8936-ef8ebc70c328",
+        "resourceAttributes.telemetry.sdk.version": "1.45.0",
+        "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+        "resourceAttributes.telemetry.sdk.language": "python"
+      },
+      "model": null,
+      "usageDetails": {},
+      "id": "26b3b41679d8bb27",
+      "parentObservationId": null
+    },
+    {
+      "name": "retrieval",
+      "type": "RETRIEVER",
+      "duration_ms": 2505.0,
+      "latency_s": 2.505,
+      "sessionId": "k4-l3b-challenge-s04",
+      "metadata": {
+        "correlation_id": "req-1cb1f08b",
+        "model": "claude-sonnet-4-5",
+        "feature": "monitoring",
+        "query_preview": "Which signal should be checked after latency increases?",
+        "doc_count": 1,
+        "scope.attributes.public_key": "[REDACTED_LANGFUSE_KEY]",
+        "scope.version": "4.15.6",
+        "scope.name": "langfuse-sdk",
+        "resourceAttributes.service.name": "unknown_service:python",
+        "resourceAttributes.service.instance.id": "f395d025-b3e3-4ffe-8936-ef8ebc70c328",
+        "resourceAttributes.telemetry.sdk.version": "1.45.0",
+        "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+        "resourceAttributes.telemetry.sdk.language": "python"
+      },
+      "model": null,
+      "usageDetails": {},
+      "id": "16b614372d464b4c",
+      "parentObservationId": "26b3b41679d8bb27"
+    }
+  ],
+  "analysis": "retrieval ~2500ms dominates; generation << retrieval; root cause = rag_slow (vector retrieval delay)"
+}

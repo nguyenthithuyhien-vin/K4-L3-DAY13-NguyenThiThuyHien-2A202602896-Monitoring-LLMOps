@@ -1,0 +1,78 @@
+[
+  {
+    "service": "api",
+    "payload": {
+      "message_preview": "Summarize the monitoring policy for production logging"
+    },
+    "event": "request_received",
+    "correlation_id": "req-047edf7a",
+    "env": "dev",
+    "user_id_hash": "97ce842ec69d",
+    "session_id": "s03",
+    "model": "claude-sonnet-4-5",
+    "feature": "summary",
+    "level": "info",
+    "ts": "2026-09-30T11:44:11.584198Z"
+  },
+  {
+    "service": "api",
+    "latency_ms": 922,
+    "ttft_ms": 55,
+    "tokens_in": 43,
+    "tokens_out": 150,
+    "cost_usd": 0.002379,
+    "quality_score": 0.8,
+    "tool_name": "retrieval",
+    "tool_success": true,
+    "payload": {
+      "answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."
+    },
+    "event": "response_sent",
+    "correlation_id": "req-047edf7a",
+    "env": "dev",
+    "user_id_hash": "97ce842ec69d",
+    "session_id": "s03",
+    "model": "claude-sonnet-4-5",
+    "feature": "summary",
+    "level": "info",
+    "ts": "2026-09-30T11:44:12.541133Z"
+  },
+  {
+    "service": "api",
+    "payload": {
+      "message_preview": "Explain why metrics traces and logs work together"
+    },
+    "event": "request_received",
+    "correlation_id": "req-d744be2d",
+    "env": "dev",
+    "user_id_hash": "95b6504a8bd6",
+    "session_id": "s02",
+    "model": "claude-sonnet-4-5",
+    "feature": "qa",
+    "level": "info",
+    "ts": "2026-09-30T11:44:12.542104Z"
+  },
+  {
+    "service": "api",
+    "latency_ms": 415,
+    "ttft_ms": 55,
+    "tokens_in": 32,
+    "tokens_out": 176,
+    "cost_usd": 0.002736,
+    "quality_score": 0.8,
+    "tool_name": "retrieval",
+    "tool_success": true,
+    "payload": {
+      "answer_preview": "Starter answer. You should improve this output logic and add better quality chec..."
+    },
+    "event": "response_sent",
+    "correlation_id": "req-d744be2d",
+    "env": "dev",
+    "user_id_hash": "95b6504a8bd6",
+    "session_id": "s02",
+    "model": "claude-sonnet-4-5",
+    "feature": "qa",
+    "level": "info",
+    "ts": "2026-09-30T11:44:12.958122Z"
+  }
+]

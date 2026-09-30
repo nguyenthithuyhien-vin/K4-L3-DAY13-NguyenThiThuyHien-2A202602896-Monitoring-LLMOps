@@ -1,0 +1,49 @@
+{
+  "project": "day13-k4-l3b-2A202602896",
+  "trace_id": "3b47ed59d02fb9984b8149969c8eb102",
+  "correlation_id": "req-cc406652",
+  "agent_metadata": {
+    "correlation_id": "req-cc406652",
+    "model": "claude-sonnet-4-5",
+    "feature": "monitoring",
+    "prompt_fetch_error": "",
+    "prompt_source": "langfuse",
+    "prompt_version": 4,
+    "prompt_label": "production",
+    "prompt_name": "day13-chat",
+    "query_preview": "Describe how to prove a slow span is the root cause.",
+    "doc_count": 1,
+    "scope.attributes.public_key": "[REDACTED_LANGFUSE_KEY]",
+    "scope.version": "4.15.6",
+    "scope.name": "langfuse-sdk",
+    "resourceAttributes.service.name": "unknown_service:python",
+    "resourceAttributes.service.instance.id": "f395d025-b3e3-4ffe-8936-ef8ebc70c328",
+    "resourceAttributes.telemetry.sdk.version": "1.45.0",
+    "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+    "resourceAttributes.telemetry.sdk.language": "python"
+  },
+  "generation": {
+    "model": null,
+    "usageDetails": {
+      "input": 43,
+      "output": 168,
+      "total": 211
+    },
+    "totalCost": 0.002649,
+    "metadata": {
+      "correlation_id": "req-cc406652",
+      "model": "claude-sonnet-4-5",
+      "feature": "monitoring",
+      "prompt_preview": "Feature=monitoring Docs=No domain document matched. Use general fallback answer....",
+      "ttft_ms": 55,
+      "scope.attributes.public_key": "[REDACTED_LANGFUSE_KEY]",
+      "scope.version": "4.15.6",
+      "scope.name": "langfuse-sdk",
+      "resourceAttributes.service.name": "unknown_service:python",
+      "resourceAttributes.service.instance.id": "f395d025-b3e3-4ffe-8936-ef8ebc70c328",
+      "resourceAttributes.telemetry.sdk.version": "1.45.0",
+      "resourceAttributes.telemetry.sdk.name": "opentelemetry",
+      "resourceAttributes.telemetry.sdk.language": "python"
+    }
+  }
+}
